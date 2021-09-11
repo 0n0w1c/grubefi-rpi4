@@ -3,7 +3,7 @@ Grubefi your Pi
 
 A PKGBUILD for Manjaro ARM RPi4 images. \
 It will convert a RPi4 from booting via firmware to UEFI and grub. \
-It also will revert back to firmware upon removal.
+It also will revert back to firmware upon removal. \
 You can install and remove at will, with or without rebooting.
  
 There is limited change to how a normal Manjaro ARM RPi4 installation is
