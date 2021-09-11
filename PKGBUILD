@@ -12,14 +12,14 @@ conflicts=()
 options=('!strip')
 install=grubefi-rpi4.install
 source=("https://github.com/pftf/RPi4/releases/download/v$uefiver/RPi4_UEFI_Firmware_v$uefiver.zip"
-        "95-update-grubefi.hook"
-        "update-grubefi"
-        "grubefi-rpi4.install")
+        "https://github.com/0n0w1c/grubefi-rpi4/blob/master/95-update-grubefi.hook"
+        "https://github.com/0n0w1c/grubefi-rpi4/blob/master/update-grubefi"
+        "https://github.com/0n0w1c/grubefi-rpi4/blob/master/grubefi-rpi4.install")
 
 md5sums=('0a391d5e0ddbde8f017317e0be0c9b2f'
-         'SKIP'
-         'SKIP'
-         'SKIP')
+         'b5c131863bb4bb4b7878988e5ddc12e4'
+         'cfa3b8f396bb32749d16aee90242affe'
+         'b647e763a77b346b096746b08a4da715')
 
 package() {
    mkdir -p $pkgdir/boot/efi
