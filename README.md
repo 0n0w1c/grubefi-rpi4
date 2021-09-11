@@ -8,7 +8,7 @@ You can install and remove at will, with or without rebooting.
  
 Minimal change to how a Manjaro ARM RPi4 installation is maintained. \
 The exception is the addition of the `update-grubefi` command, \
-which should be run after making boot configuration changes.
+which should be run after making configuration changes to files in /boot.
 
 Installation
 
