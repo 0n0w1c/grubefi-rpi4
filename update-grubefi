@@ -1,0 +1,34 @@
+#!/usr/bin/sh
+#
+# grubefi-rpi4
+# Synchronizes the firmware and configuration for booting via UEFI
+#
+
+cp /boot/efi/config.txt.uefi /boot/efi/config.txt
+echo "" >> /boot/efi/config.txt
+cat /boot/config.txt >> /boot/efi/config.txt
+
+sed -i -e 's/^uart_2ndstage=1/#uart_2ndstage=1/' /boot/efi/config.txt
+sed -i -e 's/^dtoverlay=miniuart-bt/#dtoverlay=miniuart-bt/' /boot/efi/config.txt
+
+sed -i -e '/^initramfs/d' /boot/efi/config.txt
+sed -i -e '/^kernel=/d' /boot/efi/config.txt
+
+cp --preserve=timestamps /boot/bcm2711-rpi-400.dtb /boot/efi/
+cp --preserve=timestamps /boot/bcm2711-rpi-4-b.dtb /boot/efi/
+cp --preserve=timestamps /boot/bcm2711-rpi-cm4.dtb /boot/efi/
+
+cp -r --preserve=timestamps /boot/overlays /boot/efi/
+
+if [ -d /boot/firmware ]; then
+   cp -r --preserve=timestamps /boot/firmware /boot/efi/
+fi
+
+ARGS=`sed 's/^root=.\+ rw //' /boot/cmdline.txt`
+NEW_CMDLINE="GRUB_CMDLINE_LINUX=\"${ARGS}\""
+CUR_CMDLINE=`grep "^GRUB_CMDLINE_LINUX=" /etc/default/grub`
+
+if [ "$CUR_CMDLINE" != "$NEW_CMDLINE" ]; then
+   sed -i -e "s/^GRUB_CMDLINE_LINUX=.*/${NEW_CMDLINE}/" /etc/default/grub
+   grub-mkconfig -o /boot/efi/grub/grub.cfg
+fi
