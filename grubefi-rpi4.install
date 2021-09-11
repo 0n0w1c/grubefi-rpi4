@@ -1,0 +1,92 @@
+pre_install() {
+
+   MOUNTED=0
+   grep -q " /boot " /etc/mtab
+   if [ $? -eq 0 ]; then
+      umount /boot
+      MOUNTED=$?
+   fi
+
+   if [ $MOUNTED -eq 0 ]; then
+      if [ ! -d /boot/efi ]; then
+         mkdir /boot/efi
+      fi
+
+      sed -i -e 's/\/boot/\/boot\/efi/' /etc/fstab
+
+      mount /boot/efi
+
+      if [ $? -eq 0 ]; then
+         mv -f /boot/efi/* /boot/
+      else
+         echo "Installation Error: Unable to mount /boot/efi"
+      fi
+   else
+      echo "Installation Error: Unable to unmount /boot"
+   fi
+}
+
+post_install() {
+
+   ln -s /boot/kernel8.img /boot/vmlinuz-uefi
+   ln -s /boot/initramfs-linux.img /boot/initrd-uefi
+
+   sed -i -e 's/^GRUB_DISTRIBUTOR="Arch"/GRUB_DISTRIBUTOR="Manjaro ARM"/' /etc/default/grub
+
+   grub-install --efi-directory=/boot/efi --boot-directory=/boot/efi --removable
+
+   /usr/bin/update-grubefi
+}
+
+post_upgrade() {
+
+   /usr/bin/update-grubefi
+}
+
+post_remove() {
+
+   if [ -f /etc/default/grub ]; then
+      sed -i -e "s/^GRUB_CMDLINE_LINUX=.*/GRUB_CMDLINE_LINUX=\"\"/" /etc/default/grub
+   fi
+
+   MOUNTED=0
+   grep -q " /boot/efi " /etc/mtab
+   if [ $? -ne 0 ]; then
+      mount /boot/efi
+      MOUNTED=$?
+   fi
+
+   if [ $MOUNTED -eq 0 ]; then
+      rm -fr /boot/efi/*
+      umount /boot/efi
+
+      if [ $? -eq 0 ]; then
+         tar -cPf /tmp/boot.tar --exclude /boot/efi --exclude=/boot/vmlinuz-uefi --exclude=/boot/initrd-uefi /boot
+
+         if [ $? -eq 0 ]; then
+            sed -i -e 's/\/boot\/efi/\/boot/' /etc/fstab
+
+            rm -fr /boot/*
+            mount /boot
+
+            if [ $? -eq 0 ]; then
+               tar -xPf /tmp/boot.tar
+
+               if [ $? -eq 0 ]; then
+                  rm /tmp/boot.tar
+               else
+                  echo "Remove Error: An error occurred restoring files to /boot"
+               fi
+            else
+               echo "Remove Error: Unable to mount /boot"
+            fi
+         else
+            echo "Remove Error: Failed to tar /boot"
+         fi
+      else
+         echo "Remove Error: Unable to unmount /boot/efi"
+      fi
+   else
+      echo "Remove Error: Unable to mount /boot/efi"
+   fi
+}
