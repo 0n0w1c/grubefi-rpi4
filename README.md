@@ -3,7 +3,7 @@ Grubefi your Pi
 
 A PKGBUILD for Manjaro ARM RPi4 images. \
 It will convert a RPi4 from booting via firmware to UEFI and grub. \
-It also will revert back to firmware upon removal. \
+It will revert to firmware upon removal. \
 You can install and remove at will, with or without rebooting.
  
 Minimal change to how a Manjaro ARM RPi4 installation is maintained. \
@@ -24,7 +24,7 @@ Installation
  
 6) Configure the UEFI on reboot, after each install/upgrade:
    - disable the 3GB limit
-   - most importantly, set ACPI + Devicetree
-   - boot order (if needed)
+   - set ACPI + Devicetree
+   - boot order
  
 It is a bit slow to boot with a SD, be patient.
