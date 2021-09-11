@@ -31,3 +31,6 @@ It is a bit slow to boot with a SD, be patient.
 
 Warning: Do NOT have a shell or files open in /boot or /boot/efi during \
 the installation or removal process.
+
+Note: Due to an issue with a hang during shutdown/reboot with bluetooth active, \
+bluetooth is currently disabled.
