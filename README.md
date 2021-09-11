@@ -20,7 +20,7 @@ Installation
  
 4) makepkg
  
-5) sudo pacman -U grubefi-rpi4-1.0-1-aarch64.pkg.tar.zst
+5) sudo pacman -U grubefi-rpi4-x.y-z-aarch64.pkg.tar.zst
  
 6) Configure the UEFI on reboot, after each install/upgrade:
    - disable the 3GB limit
