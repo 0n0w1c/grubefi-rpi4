@@ -6,7 +6,7 @@
 
 USERID=`id -u`
 if [ $USERID -ne 0 ]; then
-   echo "Error: You must run this as root/sudo"
+   echo "Error: You must run this as root or with sudo"
    exit
 fi
 
