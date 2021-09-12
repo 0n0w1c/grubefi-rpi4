@@ -4,6 +4,12 @@
 # Synchronizes the firmware and configuration for booting via UEFI
 #
 
+EUID=`id -u`
+if [ $EUID -ne 0 ]; then
+   echo "Error: You must run this as root/sudo"
+   exit
+fi
+
 cp /boot/efi/config.txt.uefi /boot/efi/config.txt
 echo "dtoverlay=disable-bt" >> /boot/efi/config.txt
 echo "" >> /boot/efi/config.txt
