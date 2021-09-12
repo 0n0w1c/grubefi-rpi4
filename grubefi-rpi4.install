@@ -26,8 +26,8 @@ pre_install() {
 }
 
 post_install() {
-   ln -s /boot/kernel8.img /boot/vmlinuz-uefi
-   ln -s /boot/initramfs-linux.img /boot/initrd-uefi
+   ln -s kernel8.img /boot/vmlinuz-uefi
+   ln -s initramfs-linux.img /boot/initrd-uefi
    sed -i -e 's/^GRUB_DISTRIBUTOR="Arch"/GRUB_DISTRIBUTOR="Manjaro ARM"/' /etc/default/grub
    grub-install --efi-directory=/boot/efi --boot-directory=/boot/efi --removable
    /usr/bin/update-grubefi
