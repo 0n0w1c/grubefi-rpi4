@@ -1,5 +1,5 @@
 pkgname=grubefi-rpi4
-pkgver=1.2
+pkgver=1.3
 pkgrel=1
 uefiver=1.31
 pkgdesc="Grub-efi your Pi (4B/400/CM4)"
@@ -19,7 +19,7 @@ source=("https://github.com/pftf/RPi4/releases/download/v$uefiver/RPi4_UEFI_Firm
 md5sums=('0a391d5e0ddbde8f017317e0be0c9b2f'
          'b5c131863bb4bb4b7878988e5ddc12e4'
          'SKIP'
-         'c4b0e573b97391f2b558ef35b36f6187')
+         'SKIP')
 
 package() {
    mkdir -p $pkgdir/boot/efi
