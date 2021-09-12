@@ -18,8 +18,8 @@ source=("https://github.com/pftf/RPi4/releases/download/v$uefiver/RPi4_UEFI_Firm
 
 md5sums=('0a391d5e0ddbde8f017317e0be0c9b2f'
          'b5c131863bb4bb4b7878988e5ddc12e4'
-         'SKIP'
-         'SKIP')
+         'c1f707de559194b06ecb09b57ad719e8'
+         'f902ab9fa037430080c2e778fdecb8d7')
 
 package() {
    mkdir -p $pkgdir/boot/efi
