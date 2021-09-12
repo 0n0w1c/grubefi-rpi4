@@ -25,7 +25,7 @@ Installation
    - set ACPI + Devicetree
    - boot order
  
-It is a bit slow to boot with a SD, be patient.
+It is a bit slow to boot with an SD card, be patient.
 
 Warning: Do NOT have a shell or files open in /boot or /boot/efi during \
 the installation or removal process.
