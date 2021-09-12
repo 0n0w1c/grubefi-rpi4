@@ -1,9 +1,15 @@
 pre_install() {
-   MOUNTED=0
+   local MOUNTED=0
    grep -q " /boot " /etc/mtab
    if [ $? -eq 0 ]; then
-      umount /boot
-      MOUNTED=$?
+      lsof /boot
+      if [ $? -eq 0 ]; then
+         echo "Install Error: Open filehandle on /boot"
+         MOUNTED=1
+      else
+         umount /boot
+         MOUNTED=$?
+      fi
    fi
    if [ $MOUNTED -eq 0 ]; then
       if [ ! -d /boot/efi ]; then
@@ -41,11 +47,17 @@ post_remove() {
    if [ -f /etc/default/grub ]; then
       sed -i -e "s/^GRUB_CMDLINE_LINUX=.*/GRUB_CMDLINE_LINUX=\"\"/" /etc/default/grub
    fi
-   MOUNTED=0
+   local MOUNTED=0
    grep -q " /boot/efi " /etc/mtab
    if [ $? -ne 0 ]; then
       mount /boot/efi
       MOUNTED=$?
+   else
+      lsof /boot/efi
+      if [ $? -eq 0 ]; then
+         echo "Remove Error: Open filehandle on /boot/efi"
+         MOUNTED=1
+      fi
    fi
    if [ $MOUNTED -eq 0 ]; then
       rm -fr /boot/efi/*

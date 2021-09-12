@@ -26,7 +26,7 @@ if [ $USERID -eq 0 ]; then
       cp -r --preserve=timestamps /boot/firmware /boot/efi/
    fi
 
-   ARGS=`sed 's/^root=.\+ rw //' /boot/cmdline.txt`
+   ARGS=`sed 's/root=\S* //' /boot/cmdline.txt | sed 's/rw //' | sed 's/rootflags=subvol=@ //'`
    NEW_CMDLINE="GRUB_CMDLINE_LINUX=\"${ARGS}\""
    CUR_CMDLINE=`grep "^GRUB_CMDLINE_LINUX=" /etc/default/grub`
 
