@@ -32,5 +32,5 @@ the installation or removal process.
 
 Warning: This is EXPERIMENTAL software, total data loss is a real possibility.
 
-Note: Due to an issue with a hang during shutdown/reboot with bluetooth active, \
-bluetooth is currently disabled.
+Note: Due to an issue with a hanging process during shutdown/reboot with bluetooth \
+active, bluetooth has been disabled.
