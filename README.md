@@ -1,7 +1,7 @@
 # grubefi-rpi4
 Grubefi your Pi
 
-A PKGBUILD for Manjaro ARM RPi4 images. \
+An experimental PKGBUILD for Manjaro ARM RPi4 images. \
 It will convert a RPi4 from booting via firmware to UEFI and grub. \
 It will revert to firmware upon removal. \
 You can install and remove at will, with or without rebooting.
@@ -18,11 +18,9 @@ Installation
  
 3) Download the PKGBUILD or git clone https://github.com/0n0w1c/grubefi-rpi4.git
  
-4) makepkg
+4) makepkg -sic
  
-5) sudo pacman -U grubefi-rpi4-x.y-z-aarch64.pkg.tar.zst
- 
-6) Configure the UEFI on reboot, after each install/upgrade:
+5) Configure the UEFI on reboot, after each install/upgrade:
    - disable the 3GB limit
    - set ACPI + Devicetree
    - boot order
