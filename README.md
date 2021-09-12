@@ -1,9 +1,9 @@
 # grubefi-rpi4
 Grubefi your Pi
 
-An experimental PKGBUILD for Manjaro ARM RPi4 images. \
+An experimental PKGBUILD for Manjaro ARM RPi4 installations. \
 It will convert a RPi4 from booting via firmware to UEFI and grub. \
-It will revert to firmware upon removal. \
+And when removed, it will revert to firmware. \
 You can install and remove at will, with or without rebooting.
  
 Minimal change to how a Manjaro ARM RPi4 installation is maintained. \
@@ -32,5 +32,5 @@ the installation or removal process.
 
 Warning: This is EXPERIMENTAL software, total data loss is a real possibility.
 
-Note: Due to an issue with a hanging process during shutdown/reboot with bluetooth \
-active, bluetooth has been disabled.
+Note: Due to an issue with a hanging process during shutdown/reboot when \
+bluetooth is enabled, bluetooth has been disabled.

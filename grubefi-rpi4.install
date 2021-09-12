@@ -45,7 +45,7 @@ post_upgrade() {
 
 post_remove() {
    if [ -f /etc/default/grub ]; then
-      sed -i -e "s/^GRUB_CMDLINE_LINUX=.*/GRUB_CMDLINE_LINUX=\"\"/" /etc/default/grub
+      sed -i -e 's/^GRUB_CMDLINE_LINUX=.*/GRUB_CMDLINE_LINUX=""/' /etc/default/grub
    fi
    local MOUNTED=0
    grep -q " /boot/efi " /etc/mtab
