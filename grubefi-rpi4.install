@@ -36,6 +36,12 @@ post_install() {
    ln -s initramfs-linux.img /boot/initrd-uefi
    sed -i -e 's/^GRUB_DISTRIBUTOR="Arch"/GRUB_DISTRIBUTOR="Manjaro ARM"/' /etc/default/grub
    grub-install --efi-directory=/boot/efi --boot-directory=/boot/efi --removable
+
+   cp -r --preserve=timestamps /usr/share/grub/themes/Vimix /boot/efi/grub/themes/
+   cp --preserve=timestamps /usr/share/wallpapers/manjaro-arm/generic/manjaro-arm.png /boot/efi/grub/themes/Vimix/
+   sed -i -e 's/background.jpeg/manjaro-arm.png/' /boot/efi/grub/themes/Vimix/theme.txt
+   sed -i -e 's/#GRUB_THEME="\/path\/to\/gfxtheme"/GRUB_THEME="\/boot\/efi\/grub\/themes\/Vimix\/theme.txt"/' /etc/default/grub
+
    /usr/bin/update-grubefi
 }
 
