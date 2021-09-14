@@ -31,12 +31,12 @@ Device Manager -> Raspberry Pi Configuration -> Advanced Configuration
 
 Limit RAM to 3GB - Press <kbd>Enter</kbd> Disabled <kbd>Enter</kbd> \
 System Table Selection - Press <kbd>Enter</kbd> ACPI + Devicetree <kbd>Enter</kbd>
-   - Press <kbd>F10</kbd> to Save
-   - Press <kbd>Y</kbd> to confirm
-   - Press <kbd>Esc</kbd> multiple times to return to the main menu
+ - Press <kbd>F10</kbd> to Save
+ - Press <kbd>Y</kbd> to confirm
+ - Press <kbd>Esc</kbd> multiple times to return to the main menu
 
 Reset
-   - Press <kbd>Enter</kbd>
+ - Press <kbd>Enter</kbd>
 
 SSD seem to be placed first in the boot order (if so, skip this). \
 If using a SD Card, you will also want to set the Boot Order. \
