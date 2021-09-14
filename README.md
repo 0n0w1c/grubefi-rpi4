@@ -25,35 +25,35 @@ which should be run after making configuration changes to files in /boot.
 
 - - - -
 #### Guide to the UEFI Firmware ####
-Press [Esc] when you see the Raspberry
+Press <kbd>Esc</kbd> when you see the Raspberry
 
 Device Manager -> Raspberry Pi Configuration -> Advanced Configuration
 
-Limit RAM to 3GB - Press [Enter] Disabled [Enter] \
-System Table Selection - Press [Enter] ACPI + Devicetree [Enter]
-   - Press [F10] to Save
-   - Press [Y] to confirm
-   - Press [Esc] multiple times to return to the main menu
+Limit RAM to 3GB - Press <kbd>Enter</kbd> Disabled <kbd>Enter</kbd> \
+System Table Selection - Press <kbd>Enter</kbd> ACPI + Devicetree <kbd>Enter</kbd>
+   - Press <kbd>F10</kbd> to Save
+   - Press <kbd>Y</kbd> to confirm
+   - Press <kbd>Esc</kbd> multiple times to return to the main menu
 
 Reset
-   - Press [Enter]
+   - Press <kbd>Enter</kbd>
 
 SSD seem to be placed first in the boot order (if so, skip this). \
 If using a SD Card, you will also want to set the Boot Order. \
 By default, the SD/MMC is set to last, after long network timeouts.
    
-Press [Esc] when you see the Raspberry
+Press <kbd>Esc</kbd> when you see the Raspberry
 
  Boot Maintenance Manager -> Boot Options -> Change Boot Order
-   - Press [Up/Down] to highlight your boot device, likely SD/MMC
-   - Press [+] multiple times to move it to the top of the list
-   - Press [Enter]
-   - Press [F10] to Save
-   - Press [Y] to confirm
-   - Press [Esc] multiple times to return to the main menu
+ - Press <kbd>↑</kbd><kbd>↓</kbd> to highlight your boot device, likely SD/MMC
+ - Press <kbd>+</kbd> multiple times to move it to the top of the list
+ - Press <kbd>Enter</kbd>
+ - Press <kbd>F10</kbd> to Save
+ - Press <kbd>Y</kbd> to confirm
+ - Press <kbd>Esc</kbd> multiple times to return to the main menu
 
 Reset
-   - Press [Enter]
+   - Press <kbd>Enter</kbd>
 
 - - - -
 It is a bit slow to boot with an SD card, be patient.
