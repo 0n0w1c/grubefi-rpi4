@@ -10,7 +10,8 @@ Minimal change to how a Manjaro ARM RPi4 installation is maintained. \
 The exception is the addition of the `update-grubefi` command, \
 which should be run after making configuration changes to files in /boot.
 
-Installation
+- - - -
+#### Installation ####
 
 1) A fresh installation is recommended, updated to arm-testing
  
@@ -22,13 +23,14 @@ Installation
  
 5) Configure the UEFI on reboot, after each install/upgrade:
 
-Guide to the UEFI Firmware: \
+- - - -
+#### Guide to the UEFI Firmware ####
 Press [Esc] when you see the Raspberry
 
 Device Manager -> Raspberry Pi Configuration -> Advanced Configuration
 
-Limit RAM to 3GB Press [Enter] Disabled [Enter] \
-System Table Selection Press [Enter] ACPI + Devicetree [Enter]
+Limit RAM to 3GB - Press [Enter] Disabled [Enter] \
+System Table Selection - Press [Enter] ACPI + Devicetree [Enter]
    - Press [F10] to Save
    - Press [Y] to confirm
    - Press [Esc] multiple times to return to the main menu
@@ -53,12 +55,13 @@ Press [Esc] when you see the raspberry
 Reset
    - Press [Enter]
 
+- - - -
 It is a bit slow to boot with an SD card, be patient.
 
 Warning: Do NOT have a shell or files open in /boot or /boot/efi during \
 the installation or removal process.
 
-Warning: This is EXPERIMENTAL software, total data loss is a real possibility.
+#### Warning: This is EXPERIMENTAL software, total data loss is a real possibility. ####
 
 Note: Due to an issue with a hanging process during shutdown/reboot when \
 bluetooth is enabled, bluetooth has been disabled.
