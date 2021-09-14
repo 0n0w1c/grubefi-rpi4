@@ -27,7 +27,7 @@ which should be run after making configuration changes to files in /boot.
 #### Guide to the UEFI Firmware ####
 Press <kbd>Esc</kbd> when you see the Raspberry
 
-Device Manager -> Raspberry Pi Configuration -> Advanced Configuration
+Device Manager → Raspberry Pi Configuration → Advanced Configuration
 
 Limit RAM to 3GB - Press <kbd>Enter</kbd> Disabled <kbd>Enter</kbd> \
 System Table Selection - Press <kbd>Enter</kbd> ACPI + Devicetree <kbd>Enter</kbd>
@@ -44,7 +44,7 @@ By default, the SD/MMC is set to last, after long network timeouts.
    
 Press <kbd>Esc</kbd> when you see the Raspberry
 
- Boot Maintenance Manager -> Boot Options -> Change Boot Order
+ Boot Maintenance Manager → Boot Options → Change Boot Order
  - Press <kbd>↑</kbd><kbd>↓</kbd> to highlight your boot device, likely SD/MMC
  - Press <kbd>+</kbd> multiple times to move it to the top of the list
  - Press <kbd>Enter</kbd>
