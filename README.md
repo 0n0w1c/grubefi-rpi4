@@ -22,30 +22,34 @@ Installation
  
 5) Configure the UEFI on reboot, after each install/upgrade:
 
-Guide to the UEFI Firmware:
+Guide to the UEFI Firmware: \
 Press [Esc] when you see the Raspberry
 
 Device Manager -> Raspberry Pi Configuration -> Advanced Configuration
-Limit RAM to 3GB Press [Enter] <Disabled> [Enter]
-System Table Selection Press [Enter] <ACPI + Devicetree> [Enter]
+
+Limit RAM to 3GB Press [Enter] Disabled [Enter] \
+System Table Selection Press [Enter] ACPI + Devicetree [Enter]
    - Press [F10] to Save
    - Press [Y] to confirm
    - Press [Esc] multiple times to return to the main menu
+
 Reset
    - Press [Enter]
 
-SSD seem to be placed first in the boot order (if so, skip this).
-If using a SD Card, you will also want to set the Boot Order.
+SSD seem to be placed first in the boot order (if so, skip this). \
+If using a SD Card, you will also want to set the Boot Order. \
 By default, the SD/MMC is set to last, after long network timeouts.
    
 Press [Esc] when you see the raspberry
-Boot Maintenance Manager -> Boot Options -> Change Boot Order
+
+ Boot Maintenance Manager -> Boot Options -> Change Boot Order
    - Press [Up/Down] to highlight your boot device, likely SD/MMC
    - Press [+] multiple times to move it to the top of the list
    - Press [Enter]
    - Press [F10] to Save
    - Press [Y] to confirm
    - Press [Esc] multiple times to return to the main menu
+
 Reset
    - Press [Enter]
 
