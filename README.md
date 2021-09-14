@@ -45,6 +45,7 @@ By default, the SD/MMC is set to last, after long network timeouts.
 Press <kbd>Esc</kbd> when you see the Raspberry
 
  Boot Maintenance Manager → Boot Options → Change Boot Order
+ - Press <kbd>Enter</kbd>
  - Press <kbd>↑</kbd><kbd>↓</kbd> to highlight your boot device, likely SD/MMC
  - Press <kbd>+</kbd> multiple times to move it to the top of the list
  - Press <kbd>Enter</kbd>
