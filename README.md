@@ -25,7 +25,7 @@ which should be run after making configuration changes to files in /boot.
 
 The UEFI Firmware (RPI_EFI.fd) saves the settings inside the file itself. \
 Each time the firmware is upgraded, all settings will be reset to the default. \
-So you must reconfigure the settings:
+So you must reconfigure these settings:
   - disable 3GB RAM limit
   - set ACPI + Devicetree
   - set boot order (if needed)
