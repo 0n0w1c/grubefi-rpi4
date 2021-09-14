@@ -42,7 +42,7 @@ SSD seem to be placed first in the boot order (if so, skip this). \
 If using a SD Card, you will also want to set the Boot Order. \
 By default, the SD/MMC is set to last, after long network timeouts.
    
-Press [Esc] when you see the raspberry
+Press [Esc] when you see the Raspberry
 
  Boot Maintenance Manager -> Boot Options -> Change Boot Order
    - Press [Up/Down] to highlight your boot device, likely SD/MMC
