@@ -24,8 +24,8 @@ which should be run after making configuration changes to files in /boot.
 5) Configure the UEFI on reboot, after each install/upgrade
 
 The UEFI Firmware (RPI_EFI.fd) saves the settings inside the file itself. \
-Each time the firmware is upgraded, all settings will be reset to the default. \
-So you must reconfigure these settings:
+Each time the firmware is installed/upgraded, all settings will be reset
+to their default. You will need to (re)configure the following settings:
   - disable 3GB RAM limit
   - set ACPI + Devicetree
   - set boot order (if needed)
