@@ -21,7 +21,14 @@ which should be run after making configuration changes to files in /boot.
  
 4) makepkg -sic
  
-5) Configure the UEFI on reboot, after each install/upgrade:
+5) Configure the UEFI on reboot, after each install/upgrade
+
+The UEFI Firmware (RPI_EFI.fd) saves the settings inside the file itself. \
+Each time the firmware is upgraded, all settings will be reset to the default. \
+So you must reconfigure the settings:
+  - disable 3GB RAM limit
+  - set ACPI + Devicetree
+  - set boot order (if needed)
 
 - - - -
 #### Guide to the UEFI Firmware ####
@@ -61,8 +68,8 @@ For more information refer to the [README.md](https://github.com/pftf/RPi4/blob/
 - - - -
 It is a bit slow to boot with an SD card, be patient.
 
-Warning: Do NOT have a shell or files open in /boot or /boot/efi during \
-the installation or removal process.
+Warning: Do NOT have a shell/terminal or files, open in /boot or /boot/efi during \
+the installation or removal processes.
 
 #### Warning: This is EXPERIMENTAL software, total data loss is a real possibility. ####
 
