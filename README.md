@@ -1,5 +1,5 @@
 # grubefi-rpi4
-Grubefi your Pi
+#### Grubefi your Pi ####
 
 An experimental PKGBUILD for Manjaro ARM RPi4 installations. \
 It will convert a RPi4 from booting via firmware to UEFI and grub. \
