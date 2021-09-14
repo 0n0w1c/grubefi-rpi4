@@ -68,7 +68,7 @@ For more information refer to the [README.md](https://github.com/pftf/RPi4/blob/
 - - - -
 It is a bit slow to boot with an SD card, be patient.
 
-Warning: Do NOT have a shell/terminal or files, open in /boot or /boot/efi during \
+Warning: Do NOT have a shell/terminal or files open in /boot or /boot/efi during \
 the installation or removal processes.
 
 #### Warning: This is EXPERIMENTAL software, total data loss is a real possibility. ####
