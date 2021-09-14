@@ -17,7 +17,7 @@ which should be run after making configuration changes to files in /boot.
  
 2) sudo pacman -S linux-rpi4-mainline linux-rpi4-mainline-headers
  
-3) Download the PKGBUILD or git clone https://github.com/0n0w1c/grubefi-rpi4.git
+3) Download the PKGBUILD or `git clone https://github.com/0n0w1c/grubefi-rpi4.git`
  
 4) makepkg -sic
  
@@ -55,6 +55,8 @@ Press <kbd>Esc</kbd> when you see the Raspberry
 
 Reset
    - Press <kbd>Enter</kbd>
+
+For more information refer to the [README.md](https://github.com/pftf/RPi4/blob/master/Readme.md "RPi4 UEFI").
 
 - - - -
 It is a bit slow to boot with an SD card, be patient.
