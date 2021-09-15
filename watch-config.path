@@ -1,0 +1,9 @@
+[Unit]
+Description="Monitor config.txt for configuration changes"
+
+[Path]
+PathChanged=/boot/config.txt
+Unit=watch-config.service
+
+[Install]
+WantedBy=multi-user.target

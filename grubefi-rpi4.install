@@ -43,10 +43,20 @@ post_install() {
    sed -i -e 's/#GRUB_THEME="\/path\/to\/gfxtheme"/GRUB_THEME="\/boot\/efi\/grub\/themes\/Vimix\/theme.txt"/' /etc/default/grub
 
    /usr/bin/update-grubefi
+
+   /usr/bin/systemctl enable watch-cmdline.path
+   /usr/bin/systemctl start watch-cmdline.path
+   /usr/bin/systemctl enable watch-config.path
+   /usr/bin/systemctl start watch-config.path
 }
 
 post_upgrade() {
    /usr/bin/update-grubefi
+
+   /usr/bin/systemctl enable watch-cmdline.path
+   /usr/bin/systemctl restart watch-cmdline.path
+   /usr/bin/systemctl enable watch-config.path
+   /usr/bin/systemctl restart watch-config.path
 }
 
 post_remove() {

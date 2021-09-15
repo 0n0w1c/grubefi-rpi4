@@ -1,0 +1,8 @@
+[Unit]
+Description="Synchronize /boot to /boot/efi"
+
+[Service]
+ExecStart=/usr/bin/update-grubefi
+
+[Install]
+WantedBy=multi-user.target

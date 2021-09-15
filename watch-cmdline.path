@@ -1,0 +1,9 @@
+[Unit]
+Description="Monitor cmdline.txt for configuration changes"
+
+[Path]
+PathChanged=/boot/cmdline.txt
+Unit=watch-cmdline.service
+
+[Install]
+WantedBy=multi-user.target

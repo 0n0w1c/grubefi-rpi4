@@ -17,13 +17,13 @@ if [ $USERID -eq 0 ]; then
    sed -i -e '/^initramfs/d' /boot/efi/config.txt
    sed -i -e '/^kernel=/d' /boot/efi/config.txt
 
-   cp --preserve=timestamps /boot/bcm2711-rpi-400.dtb /boot/efi/
-   cp --preserve=timestamps /boot/bcm2711-rpi-4-b.dtb /boot/efi/
-   cp --preserve=timestamps /boot/bcm2711-rpi-cm4.dtb /boot/efi/
+   cp -u --preserve=timestamps /boot/bcm2711-rpi-400.dtb /boot/efi/
+   cp -u --preserve=timestamps /boot/bcm2711-rpi-4-b.dtb /boot/efi/
+   cp -u --preserve=timestamps /boot/bcm2711-rpi-cm4.dtb /boot/efi/
 
-   cp -r --preserve=timestamps /boot/overlays /boot/efi/
+   cp -u -r --preserve=timestamps /boot/overlays /boot/efi/
    if [ -d /boot/firmware ]; then
-      cp -r --preserve=timestamps /boot/firmware /boot/efi/
+      cp -u -r --preserve=timestamps /boot/firmware /boot/efi/
    fi
 
    ARGS=`sed 's/root=\S* //' /boot/cmdline.txt | sed 's/rw //' | sed 's/rootflags=subvol=@ //'`
