@@ -21,13 +21,13 @@ source=("https://github.com/pftf/RPi4/releases/download/v$uefiver/RPi4_UEFI_Firm
         'https://github.com/0n0w1c/grubefi-rpi4/blob/master/watch-config.service')
 
 md5sums=('0a391d5e0ddbde8f017317e0be0c9b2f'
-         'SKIP'
-         'SKIP'
-         'SKIP'
-         'SKIP'
-         'SKIP'
-         'SKIP'
-         'SKIP')
+         'dd46de30c86b872cee5e729a71a4de72'
+         'a5c02ccbff9d277b2116323bf82f8d45'
+         'a4bd960f94c0f5d3bb0b9c425236e2cc'
+         '780f27cc63514018f4fc373dbba91b3f'
+         'e3086a7d5c1dea1aeaed1674ccbbe176'
+         '027254ce97c7b50485a5854b989ec876'
+         'e3086a7d5c1dea1aeaed1674ccbbe176')
 
 package() {
    mkdir -p $pkgdir/boot/efi
