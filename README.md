@@ -8,8 +8,9 @@ You can install and remove at will, with or without rebooting.
  
 Minimal change to how a Manjaro ARM RPi4 installation is maintained. \
 The exception is the addition of the `update-grubefi` command, \
-which can be used to manually update configuration changes to UEFI. \
-Under most situations, the configuration is automatically updated.
+which can be used to manually update boot configuration changes to UEFI. \
+Under most situations, the boot configuration is automatically updated. \
+The boot configuration being config.txt, cmdline.txt, and overlays.
 
 - - - -
 #### Installation ####
