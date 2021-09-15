@@ -42,21 +42,26 @@ post_install() {
    sed -i -e 's/background.jpeg/manjaro-arm.png/' /boot/efi/grub/themes/Vimix/theme.txt
    sed -i -e 's/#GRUB_THEME="\/path\/to\/gfxtheme"/GRUB_THEME="\/boot\/efi\/grub\/themes\/Vimix\/theme.txt"/' /etc/default/grub
 
-   /usr/bin/update-grubefi
+   update-grubefi
 
-   /usr/bin/systemctl enable watch-cmdline.path
-   /usr/bin/systemctl start watch-cmdline.path
-   /usr/bin/systemctl enable watch-config.path
-   /usr/bin/systemctl start watch-config.path
+   systemctl enable watch-cmdline.path
+   systemctl start watch-cmdline.path
+   systemctl enable watch-config.path
+   systemctl start watch-config.path
 }
 
 post_upgrade() {
-   /usr/bin/update-grubefi
+   update-grubefi
 
-   /usr/bin/systemctl enable watch-cmdline.path
-   /usr/bin/systemctl restart watch-cmdline.path
-   /usr/bin/systemctl enable watch-config.path
-   /usr/bin/systemctl restart watch-config.path
+   systemctl enable watch-cmdline.path
+   systemctl restart watch-cmdline.path
+   systemctl enable watch-config.path
+   systemctl restart watch-config.path
+}
+
+pre_remove() {
+   systemctl disable watch-cmdline.path
+   systemctl disable watch-config.path
 }
 
 post_remove() {
