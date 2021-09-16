@@ -68,6 +68,7 @@ Press <kbd>Esc</kbd> when you see the Raspberry
 For more information refer to the [README.md](https://github.com/pftf/RPi4/blob/master/Readme.md "RPi4 UEFI").
 
 - - - -
+#### Release Notes ####
 It is a bit slow to boot with an SD card, be patient.
 
 Warning: Do NOT have a shell/terminal or files open in /boot or /boot/efi during \
