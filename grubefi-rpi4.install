@@ -66,10 +66,11 @@ pre_remove() {
    systemctl disable watch-cmdline.path
    systemctl stop watch-config.path
    systemctl disable watch-config.path
-   systemctl daemon-reload
 }
 
 post_remove() {
+   systemctl daemon-reload
+
    if [ -f /etc/default/grub ]; then
       sed -i -e 's/^GRUB_CMDLINE_LINUX=.*/GRUB_CMDLINE_LINUX=""/' /etc/default/grub
    fi

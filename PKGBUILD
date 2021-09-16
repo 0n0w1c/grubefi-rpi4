@@ -23,7 +23,7 @@ source=("https://github.com/pftf/RPi4/releases/download/v$uefiver/RPi4_UEFI_Firm
 md5sums=('0a391d5e0ddbde8f017317e0be0c9b2f'
          'dd46de30c86b872cee5e729a71a4de72'
          'a5c02ccbff9d277b2116323bf82f8d45'
-         '4bf11f9c0288b69deabeddcd7eb277f2'
+         '67536bcd3845a99b5806c68b173fa757'
          '780f27cc63514018f4fc373dbba91b3f'
          'e3086a7d5c1dea1aeaed1674ccbbe176'
          '027254ce97c7b50485a5854b989ec876'
