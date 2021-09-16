@@ -60,7 +60,9 @@ post_upgrade() {
 }
 
 pre_remove() {
+   systemctl stop watch-cmdline.path
    systemctl disable watch-cmdline.path
+   systemctl stop watch-config.path
    systemctl disable watch-config.path
 }
 
