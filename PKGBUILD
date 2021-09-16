@@ -1,6 +1,6 @@
 pkgname=grubefi-rpi4
 pkgver=1.6
-pkgrel=2
+pkgrel=3
 uefiver=1.31
 pkgdesc="Grub-efi your Pi (4B/400/CM4)"
 arch=('aarch64')
