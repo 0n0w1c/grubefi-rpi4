@@ -71,8 +71,8 @@ For more information refer to the [README.md](https://github.com/pftf/RPi4/blob/
 #### Release Notes ####
 It is a bit slow to boot with an SD card, be patient.
 
-Due to an issue with a hanging process during shutdown/reboot when \
-bluetooth is enabled, bluetooth has been disabled.
+Due to an issue with a hanging process during shutdown/reboot when bluetooth is \
+enabled, it is currently disabled. (investigating)
 
 Warning: Do NOT have a shell/terminal or files open in /boot or /boot/efi during \
 the installation or removal processes.
