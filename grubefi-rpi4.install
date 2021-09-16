@@ -44,6 +44,7 @@ post_install() {
 
    update-grubefi
 
+   systemctl daemon-reload
    systemctl enable watch-cmdline.path
    systemctl start watch-cmdline.path
    systemctl enable watch-config.path
@@ -53,6 +54,7 @@ post_install() {
 post_upgrade() {
    update-grubefi
 
+   systemctl daemon-reload
    systemctl enable watch-cmdline.path
    systemctl restart watch-cmdline.path
    systemctl enable watch-config.path
@@ -64,6 +66,7 @@ pre_remove() {
    systemctl disable watch-cmdline.path
    systemctl stop watch-config.path
    systemctl disable watch-config.path
+   systemctl daemon-reload
 }
 
 post_remove() {
