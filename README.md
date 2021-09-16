@@ -69,7 +69,7 @@ For more information refer to the [README.md](https://github.com/pftf/RPi4/blob/
 
 - - - -
 #### Release Notes ####
-Raspberry Pi 4 UEFI Firmware 1.31
+Raspberry Pi 4 UEFI Firmware version 1.31
 
 It is a bit slow to boot with an SD card, be patient.
 
