@@ -74,7 +74,8 @@ Raspberry Pi 4 UEFI Firmware version 1.31
 It is a bit slow to boot with an SD card, be patient.
 
 Due to an issue with the failure to reboot when bluetooth is enabled, it is \
-currently disabled. (Modify /boot/efi/config.txt.uefi to re-enable bluetooth)
+currently disabled. Modify /boot/efi/config.txt.uefi and run update-grubefi \
+to re-enable bluetooth.
 
 Warning: Do NOT have a shell/terminal or files open in /boot or /boot/efi during \
 the installation or removal processes.
