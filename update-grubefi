@@ -7,7 +7,6 @@
 USERID=`id -u`
 if [ $USERID -eq 0 ]; then
    cp /boot/efi/config.txt.uefi /boot/efi/config.txt
-   echo "dtoverlay=disable-bt" >> /boot/efi/config.txt
    echo "" >> /boot/efi/config.txt
    cat /boot/config.txt >> /boot/efi/config.txt
 
