@@ -11,7 +11,7 @@ if [ $USERID -eq 0 ]; then
    cat /boot/config.txt >> /boot/efi/config.txt
 
    #sed -i -e 's/^uart_2ndstage=1/#uart_2ndstage=1/' /boot/efi/config.txt
-   #sed -i -e 's/^dtoverlay=miniuart-bt/#dtoverlay=miniuart-bt/' /boot/efi/config.txt
+   sed -i -e 's/^dtoverlay=miniuart-bt/#dtoverlay=miniuart-bt/' /boot/efi/config.txt
 
    sed -i -e '/^initramfs/d' /boot/efi/config.txt
    sed -i -e '/^kernel=/d' /boot/efi/config.txt
