@@ -46,7 +46,8 @@ package() {
    cp RPI_EFI.fd $pkgdir/boot/efi/
    cp config.txt $pkgdir/boot/efi/config.txt.uefi
 
-   echo "\/n# Disable bluetooth" >> $pkgdir/boot/efi/config.txt.uefi
+   echo "" >> $pkgdir/boot/efi/config.txt.uefi
+   echo "# Disable bluetooth" >> $pkgdir/boot/efi/config.txt.uefi
    echo "dtoverlay=disable-bt" >> $pkgdir/boot/efi/config.txt.uefi
 
    cp watch-cmdline.path $pkgdir/etc/systemd/system/
