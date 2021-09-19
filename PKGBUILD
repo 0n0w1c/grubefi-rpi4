@@ -1,8 +1,8 @@
 pkgname=grubefi-rpi4
 pkgver=1.6
-pkgrel=4
+pkgrel=5
 uefiver=1.31
-pkgdesc="Grub-efi your Pi (4B/400/CM4)"
+pkgdesc="grubefi your pi (4B/400/CM4)"
 arch=('aarch64')
 url="https://github.com/0n0w1c/grubefi-rpi4"
 license=('MIT')
@@ -22,7 +22,7 @@ source=("https://github.com/pftf/RPi4/releases/download/v$uefiver/RPi4_UEFI_Firm
 
 md5sums=('0a391d5e0ddbde8f017317e0be0c9b2f'
          'dd46de30c86b872cee5e729a71a4de72'
-         '0ee5ac2ed6234f4f106c114b3fb64f01'
+         '7e6de56dcb1fead6eb7c35dd0ccc6bd2'
          '67536bcd3845a99b5806c68b173fa757'
          '780f27cc63514018f4fc373dbba91b3f'
          'e3086a7d5c1dea1aeaed1674ccbbe176'
@@ -45,10 +45,6 @@ package() {
    cp Readme.md $pkgdir/boot/efi/
    cp RPI_EFI.fd $pkgdir/boot/efi/
    cp config.txt $pkgdir/boot/efi/config.txt.uefi
-
-   echo "" >> $pkgdir/boot/efi/config.txt.uefi
-   echo "# Disable bluetooth" >> $pkgdir/boot/efi/config.txt.uefi
-   echo "dtoverlay=disable-bt" >> $pkgdir/boot/efi/config.txt.uefi
 
    cp watch-cmdline.path $pkgdir/etc/systemd/system/
    cp watch-cmdline.service $pkgdir/etc/systemd/system/

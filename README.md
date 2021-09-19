@@ -71,11 +71,11 @@ For more information refer to the [README.md](https://github.com/pftf/RPi4/blob/
 #### Release Notes ####
 Raspberry Pi 4 UEFI Firmware version 1.31
 
-It is a bit slow to boot with an SD card, be patient.
+Bluetooth is no longer disabled, the reboot issue has been resolved by the \
+injection of `8250.nr_uarts=1` as  kernel command line parameter, unless it \
+is defined in cmdline.txt.
 
-Due to an issue with the failure to reboot when bluetooth is enabled, it is \
-currently disabled. Modify /boot/efi/config.txt.uefi and run update-grubefi \
-to re-enable bluetooth.
+It is a bit slow to boot with an SD card, be patient.
 
 Warning: Do NOT have a shell/terminal or files open in /boot or /boot/efi during \
 the installation or removal processes.
