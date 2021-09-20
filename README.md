@@ -72,16 +72,16 @@ For more information refer to the [README.md](https://github.com/pftf/RPi4/blob/
 Raspberry Pi 4 UEFI Firmware version 1.31
 
 Bluetooth is no longer disabled, the reboot issue has been resolved by the \
-injection of `8250.nr_uarts=1` as a kernel command line parameter, unless it \
+insertion of `8250.nr_uarts=1` as a kernel command line parameter, unless it \
 is defined in cmdline.txt.
 
 It is a bit slow to boot with an SD card, be patient.
 
 The fat32 partition, mounted as /boot/efi is considered the UEFI sandbox. \
-Do not store your files in this location. As all files will be deleted upon removal \
-of the this package with `pacman -R grubefi-rpi4`.
+Do not store your files in this location. All files in /boot/efi/ will be \
+deleted upon removal of the this package with `pacman -R grubefi-rpi4`.
 
-Warning: Do NOT have a shell/terminal or files open in /boot or /boot/efi during \
+Warning: DO NOT have a shell (terminal) or files, open in /boot or /boot/efi during \
 the installation or removal processes.
 
 #### Warning: This is EXPERIMENTAL software, total data loss is a real possibility. ####
