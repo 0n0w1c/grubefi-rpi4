@@ -78,8 +78,8 @@ is defined in cmdline.txt.
 It is a bit slow to boot with an SD card, be patient.
 
 The fat32 partition, mounted as /boot/efi is considered the UEFI sandbox. \
-Do not store your files in this location. All files in /boot/efi/ will be \
-deleted upon removal of the this package with `pacman -R grubefi-rpi4`.
+Do not store your files in this location. All files in /boot/efi/ will be deleted \
+upon removal of the this package with `pacman -R grubefi-rpi4`.
 
 Warning: DO NOT have a shell (terminal) or files, open in /boot or /boot/efi during \
 the installation or removal processes.
