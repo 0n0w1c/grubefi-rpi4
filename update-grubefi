@@ -27,18 +27,17 @@ if [ $USERID -eq 0 ]; then
 
    ARGS=`sed 's/root=\S* //' /boot/cmdline.txt | sed 's/rw //' | sed 's/rootflags=subvol=@ //'`
    NEW_CMDLINE="GRUB_CMDLINE_LINUX=\"${ARGS}\""
-   CUR_CMDLINE=`grep "^GRUB_CMDLINE_LINUX=" /etc/default/grub`
+   if [[ "$NEW_CMDLINE" != *"snd_bcm2835.enable_headphones="* ]]; then
+      NEW_CMDLINE=`echo "$NEW_CMDLINE" | sed 's/rootwait/rootwait snd_bcm2835.enable_headphones=1/'`
+   fi
+   if [[ "$NEW_CMDLINE" != *"8250.nr_uarts="* ]]; then
+      NEW_CMDLINE=`echo "$NEW_CMDLINE" | sed 's/rootwait/rootwait 8250.nr_uarts=1/'`
+   fi
+   sed -i -e "s/^GRUB_CMDLINE_LINUX=.*/${NEW_CMDLINE}/" /etc/default/grub
 
-   if [ "$CUR_CMDLINE" != "$NEW_CMDLINE" ]; then
-      if [[ "$NEW_CMDLINE" != *"8250.nr_uarts="* ]]; then
-         NEW_CMDLINE=`echo "$NEW_CMDLINE" | sed 's/rootwait/rootwait 8250.nr_uarts=1/'`
-      fi
-
-      sed -i -e "s/^GRUB_CMDLINE_LINUX=.*/${NEW_CMDLINE}/" /etc/default/grub
-      grub-mkconfig -o /boot/efi/grub/grub.cfg
-      if [ $? -ne 0 ]; then
-         echo "Error: Failed to successfully run grub-mkconfig"
-      fi
+   grub-mkconfig -o /boot/efi/grub/grub.cfg
+   if [ $? -ne 0 ]; then
+      echo "Error: Failed to successfully run grub-mkconfig"
    fi
 
    sync
