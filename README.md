@@ -72,7 +72,7 @@ For more information refer to the [README.md](https://github.com/pftf/RPi4/blob/
 #### Release Notes ####
 Raspberry Pi 4 UEFI Firmware version 1.31
 
-The headphone jack is enabled, to better mimic booting via RPI firmware.
+The headphone jack is enabled, to better mimic booting via the RPi4 firmware.
 
 grub-mkconfig will run each time update-grubefi is executed.
 
