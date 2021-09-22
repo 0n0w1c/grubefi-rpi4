@@ -9,7 +9,7 @@ You can install and remove at will, with or without rebooting.
 Minimal change to how a Manjaro ARM RPi4 installation is maintained. \
 The exception is the addition of the `update-grubefi` command, \
 which can be used to manually update boot configuration changes to UEFI. \
-Under most situations, the boot configuration is automatically updated. \
+In most situations, the boot configuration will update automatically. \
 The boot configuration being config.txt, cmdline.txt, and overlays.
 
 - - - -
@@ -48,7 +48,7 @@ System Table Selection - Press <kbd>Enter</kbd> ACPI + Devicetree <kbd>Enter</kb
  - Press <kbd>Enter</kbd>
 
 SSD seem to be placed first in the boot order (if so, skip this). \
-If using a SD Card, you will also want to set the Boot Order. \
+If using an SD Card, you will also want to set the Boot Order. \
 By default, the SD/MMC is set to last, after long network timeouts.
    
 Press <kbd>Esc</kbd> when you see the Raspberry
@@ -71,9 +71,9 @@ For more information refer to the [README.md](https://github.com/pftf/RPi4/blob/
 #### Release Notes ####
 Raspberry Pi 4 UEFI Firmware version 1.31
 
-Bluetooth is no longer disabled, the reboot issue has been resolved by the \
-insertion of `8250.nr_uarts=1` as a kernel command line parameter, unless it \
-is defined in cmdline.txt.
+The headphone jack is enabled, to better mimic booting via RPI firmware.
+
+grub-mkconfig will run each time update-grubefi is executed.
 
 It is a bit slow to boot with an SD card, be patient.
 
