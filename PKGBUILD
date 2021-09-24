@@ -1,6 +1,6 @@
 pkgname=grubefi-rpi4
 pkgver=1.6
-pkgrel=7
+pkgrel=8
 uefiver=1.31
 pkgdesc="grubefi your pi (4B/400/CM4)"
 arch=('aarch64')
@@ -10,15 +10,14 @@ depends=('grub' 'grub-theme-vimix' 'lsof' 'manjaro-arm-wallpapers')
 provides=('grubefi-rpi4')
 conflicts=()
 options=('!strip')
-install=grubefi-rpi4.install
 source=("https://github.com/pftf/RPi4/releases/download/v$uefiver/RPi4_UEFI_Firmware_v$uefiver.zip"
-        'https://github.com/0n0w1c/grubefi-rpi4/blob/master/95-update-grubefi.hook'
-        'https://github.com/0n0w1c/grubefi-rpi4/blob/master/update-grubefi'
-        'https://github.com/0n0w1c/grubefi-rpi4/blob/master/grubefi-rpi4.install'
-        'https://github.com/0n0w1c/grubefi-rpi4/blob/master/watch-cmdline.path'
-        'https://github.com/0n0w1c/grubefi-rpi4/blob/master/watch-cmdline.service'
-        'https://github.com/0n0w1c/grubefi-rpi4/blob/master/watch-config.path'
-        'https://github.com/0n0w1c/grubefi-rpi4/blob/master/watch-config.service')
+        "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/95-update-grubefi.hook"
+        "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/update-grubefi"
+        "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/grubefi-rpi4.install"
+        "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/watch-cmdline.path"
+        "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/watch-cmdline.service"
+        "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/watch-config.path"
+        "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/watch-config.service")
 
 md5sums=('0a391d5e0ddbde8f017317e0be0c9b2f'
          'dd46de30c86b872cee5e729a71a4de72'
