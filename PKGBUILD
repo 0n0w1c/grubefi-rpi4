@@ -1,6 +1,6 @@
 pkgname=grubefi-rpi4
 pkgver=1.7
-pkgrel=0
+pkgrel=1
 uefiver=1.31
 pkgdesc="grubefi your pi (4B/400/CM4)"
 arch=('aarch64')
@@ -10,6 +10,7 @@ depends=('bsdiff' 'grub' 'grub-theme-vimix' 'lsof' 'manjaro-arm-wallpapers')
 provides=('grubefi-rpi4')
 conflicts=()
 options=('!strip')
+install=grubefi-rpi4.install
 source=("https://github.com/pftf/RPi4/releases/download/v$uefiver/RPi4_UEFI_Firmware_v$uefiver.zip"
         "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/RPI_EFI.fd.patch"
         "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/95-update-grubefi.hook"
