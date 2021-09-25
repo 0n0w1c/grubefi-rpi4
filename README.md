@@ -35,7 +35,7 @@ You will need to (re)configure the following:
 #### Guide to the UEFI Firmware ####
 Press <kbd>Esc</kbd> when you see the Raspberry
 
-(The following setting change is pre-applied, for reference)
+(The following setting change is pre-applied, for reference) \
 `Device Manager` → `Raspberry Pi Configuration` → `Advanced Configuration`
 
 Limit RAM to 3GB - Press <kbd>Enter</kbd> Disabled <kbd>Enter</kbd> \
