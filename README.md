@@ -28,15 +28,14 @@ The boot configuration being config.txt, cmdline.txt, and overlays.
 
 Important: The UEFI Firmware (RPI_EFI.fd) saves the settings in the file itself. \
 Each time the firmware is installed/upgraded, all settings will be reset to their default. \
-You will need to (re)configure the following settings:
-  - disable 3GB RAM limit
-  - set ACPI + Devicetree
+You will need to (re)configure the following:
   - set boot order (if needed)
 
 - - - -
 #### Guide to the UEFI Firmware ####
 Press <kbd>Esc</kbd> when you see the Raspberry
 
+(The following setting change is pre-applied, for reference)
 `Device Manager` → `Raspberry Pi Configuration` → `Advanced Configuration`
 
 Limit RAM to 3GB - Press <kbd>Enter</kbd> Disabled <kbd>Enter</kbd> \
@@ -71,6 +70,10 @@ For more information refer to the [README.md](https://github.com/pftf/RPi4/blob/
 - - - -
 #### Release Notes ####
 Raspberry Pi 4 UEFI Firmware version 1.31
+
+Limit RAM to 3GB set to `Disabled`
+
+System Table Selection set to `ACPI + Devicetree`
 
 The headphone jack is enabled, to better mimic booting via the RPi4 firmware.
 

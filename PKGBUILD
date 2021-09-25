@@ -1,16 +1,17 @@
 pkgname=grubefi-rpi4
-pkgver=1.6
-pkgrel=8
+pkgver=1.7
+pkgrel=0
 uefiver=1.31
 pkgdesc="grubefi your pi (4B/400/CM4)"
 arch=('aarch64')
 url="https://github.com/0n0w1c/grubefi-rpi4"
 license=('MIT')
-depends=('grub' 'grub-theme-vimix' 'lsof' 'manjaro-arm-wallpapers')
+depends=('bsdiff' 'grub' 'grub-theme-vimix' 'lsof' 'manjaro-arm-wallpapers')
 provides=('grubefi-rpi4')
 conflicts=()
 options=('!strip')
 source=("https://github.com/pftf/RPi4/releases/download/v$uefiver/RPi4_UEFI_Firmware_v$uefiver.zip"
+        "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/RPI_EFI.fd.patch"
         "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/95-update-grubefi.hook"
         "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/update-grubefi"
         "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/grubefi-rpi4.install"
@@ -20,6 +21,7 @@ source=("https://github.com/pftf/RPi4/releases/download/v$uefiver/RPi4_UEFI_Firm
         "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/watch-config.service")
 
 md5sums=('0a391d5e0ddbde8f017317e0be0c9b2f'
+         '714fffcafca72edf2ae94bf768fa1321'
          'dd46de30c86b872cee5e729a71a4de72'
          '342e29a3179268f3d599eb5f7d204a39'
          '67536bcd3845a99b5806c68b173fa757'
@@ -42,7 +44,8 @@ package() {
    cp start4.elf $pkgdir/boot/efi/
    cp fixup4.dat $pkgdir/boot/efi/
    cp Readme.md $pkgdir/boot/efi/
-   cp RPI_EFI.fd $pkgdir/boot/efi/
+   #cp RPI_EFI.fd $pkgdir/boot/efi/
+   bspatch RPI_EFI.fd $pkgdir/boot/efi/RPI_EFI.fd RPI_EFI.fd.patch
    cp config.txt $pkgdir/boot/efi/config.txt.uefi
 
    cp watch-cmdline.path $pkgdir/etc/systemd/system/
