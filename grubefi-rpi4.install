@@ -2,7 +2,7 @@ pre_install() {
    local MOUNTED=0
    grep -q " /boot " /etc/mtab
    if [ $? -eq 0 ]; then
-      lsof /boot
+      lsof -e /run/user/1000/gvfs /boot
       if [ $? -eq 0 ]; then
          echo "Install Error: Open filehandle on /boot"
          MOUNTED=1
@@ -80,7 +80,7 @@ post_remove() {
       mount /boot/efi
       MOUNTED=$?
    else
-      lsof /boot/efi
+      lsof -e /run/user/1000/gvfs /boot/efi
       if [ $? -eq 0 ]; then
          echo "Remove Error: Open filehandle on /boot/efi"
          MOUNTED=1

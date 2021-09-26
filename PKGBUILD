@@ -1,6 +1,6 @@
 pkgname=grubefi-rpi4
 pkgver=1.7
-pkgrel=1
+pkgrel=2
 uefiver=1.31
 pkgdesc="grubefi your pi (4B/400/CM4)"
 arch=('aarch64')
@@ -25,7 +25,7 @@ md5sums=('0a391d5e0ddbde8f017317e0be0c9b2f'
          '714fffcafca72edf2ae94bf768fa1321'
          'dd46de30c86b872cee5e729a71a4de72'
          '342e29a3179268f3d599eb5f7d204a39'
-         '67536bcd3845a99b5806c68b173fa757'
+         '48ae0e6fcf21128c60825366fdd9d05b'
          '780f27cc63514018f4fc373dbba91b3f'
          'e3086a7d5c1dea1aeaed1674ccbbe176'
          '027254ce97c7b50485a5854b989ec876'
