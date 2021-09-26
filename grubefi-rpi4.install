@@ -2,13 +2,10 @@ pre_install() {
    local MOUNTED=0
    grep -q " /boot " /etc/mtab
    if [ $? -eq 0 ]; then
-      lsof -e /run/user/1000/gvfs /boot
-      if [ $? -eq 0 ]; then
-         echo "Install Error: Open filehandle on /boot"
-         MOUNTED=1
-      else
-         umount /boot
-         MOUNTED=$?
+      umount /boot
+      MOUNTED=$? 
+      if [ $MOUNTED -ne 0 ]; then
+         echo "Install Error: Failed to unmount /boot"
       fi
    fi
    if [ $MOUNTED -eq 0 ]; then
@@ -16,6 +13,7 @@ pre_install() {
          mkdir /boot/efi
       fi
       sed -i -e 's/\/boot/\/boot\/efi/' /etc/fstab
+      sync
       mount /boot/efi
       if [ $? -eq 0 ]; then
          mv -f /boot/efi/* /boot/
@@ -35,12 +33,14 @@ post_install() {
    ln -s kernel8.img /boot/vmlinuz-uefi
    ln -s initramfs-linux.img /boot/initrd-uefi
    sed -i -e 's/^GRUB_DISTRIBUTOR="Arch"/GRUB_DISTRIBUTOR="Manjaro ARM"/' /etc/default/grub
+   sync
    grub-install --efi-directory=/boot/efi --boot-directory=/boot/efi --removable
 
    cp -r --preserve=timestamps /usr/share/grub/themes/Vimix /boot/efi/grub/themes/
    cp --preserve=timestamps /usr/share/wallpapers/manjaro-arm/generic/manjaro-arm.png /boot/efi/grub/themes/Vimix/
    sed -i -e 's/background.jpeg/manjaro-arm.png/' /boot/efi/grub/themes/Vimix/theme.txt
    sed -i -e 's/#GRUB_THEME="\/path\/to\/gfxtheme"/GRUB_THEME="\/boot\/efi\/grub\/themes\/Vimix\/theme.txt"/' /etc/default/grub
+   sync
 
    update-grubefi
 
@@ -73,27 +73,28 @@ post_remove() {
 
    if [ -f /etc/default/grub ]; then
       sed -i -e 's/^GRUB_CMDLINE_LINUX=.*/GRUB_CMDLINE_LINUX=""/' /etc/default/grub
+      sync
    fi
+
    local MOUNTED=0
    grep -q " /boot/efi " /etc/mtab
    if [ $? -ne 0 ]; then
       mount /boot/efi
       MOUNTED=$?
-   else
-      lsof -e /run/user/1000/gvfs /boot/efi
-      if [ $? -eq 0 ]; then
-         echo "Remove Error: Open filehandle on /boot/efi"
-         MOUNTED=1
+      if [ $MOUNTED -ne 0 ]; then
+         echo "Remove Error: Failed to mount /boot/efi"
       fi
    fi
    if [ $MOUNTED -eq 0 ]; then
       rm -fr /boot/efi/*
+      sync
       umount /boot/efi
       if [ $? -eq 0 ]; then
          tar -cPf /tmp/boot.tar --exclude /boot/efi --exclude=/boot/vmlinuz-uefi --exclude=/boot/initrd-uefi /boot
          if [ $? -eq 0 ]; then
             sed -i -e 's/\/boot\/efi/\/boot/' /etc/fstab
             rm -fr /boot/*
+            sync
             mount /boot
             if [ $? -eq 0 ]; then
                tar -xPf /tmp/boot.tar

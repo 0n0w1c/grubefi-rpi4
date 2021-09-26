@@ -1,12 +1,12 @@
 pkgname=grubefi-rpi4
-pkgver=1.8
+pkgver=1.9
 pkgrel=0
 uefiver=1.31
 pkgdesc="grubefi your pi (4B/400/CM4)"
 arch=('aarch64')
 url="https://github.com/0n0w1c/grubefi-rpi4"
 license=('MIT')
-depends=('bsdiff' 'grub' 'grub-theme-vimix' 'lsof' 'manjaro-arm-wallpapers')
+depends=('bsdiff' 'grub' 'grub-theme-vimix' 'manjaro-arm-wallpapers')
 provides=('grubefi-rpi4')
 conflicts=()
 options=('!strip')
@@ -25,7 +25,7 @@ md5sums=('0a391d5e0ddbde8f017317e0be0c9b2f'
          '6cc108582dcf6eb9d8d0586b858a2b8b'
          'dd46de30c86b872cee5e729a71a4de72'
          '342e29a3179268f3d599eb5f7d204a39'
-         '48ae0e6fcf21128c60825366fdd9d05b'
+         '632f20d07232266185fcbc83e6d4812c'
          '780f27cc63514018f4fc373dbba91b3f'
          'e3086a7d5c1dea1aeaed1674ccbbe176'
          '027254ce97c7b50485a5854b989ec876'
