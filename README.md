@@ -20,7 +20,7 @@ The boot configuration being config.txt, cmdline.txt, and overlays.
  
 2) sudo pacman -S linux-rpi4-mainline linux-rpi4-mainline-headers
  
-3) Download the PKGBUILD or `git clone https://github.com/0n0w1c/grubefi-rpi4.git`
+3) `git clone https://github.com/0n0w1c/grubefi-rpi4.git`
  
 4) makepkg -sic
  
