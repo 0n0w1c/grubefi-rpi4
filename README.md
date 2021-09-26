@@ -35,7 +35,7 @@ You will need to (re)configure the following:
 #### Guide to the UEFI Firmware ####
 Press <kbd>Esc</kbd> when you see the Raspberry
 
-(The following setting change is pre-applied, for reference) \
+The following Settings changes are pre-applied: \
 `Device Manager` → `Raspberry Pi Configuration` → `Advanced Configuration`
 
 Limit RAM to 3GB - Press <kbd>Enter</kbd> Disabled <kbd>Enter</kbd> \
@@ -47,9 +47,8 @@ System Table Selection - Press <kbd>Enter</kbd> ACPI + Devicetree <kbd>Enter</kb
 `Reset`
  - Press <kbd>Enter</kbd>
 
-SSD seem to be placed first in the boot order (if so, skip this). \
-If using an SD Card, you will also want to set the Boot Order. \
-By default, the SD/MMC is set to last, after long network timeouts.
+
+Boot Order is set to SD → USB → Network.
    
 Press <kbd>Esc</kbd> when you see the Raspberry
 
@@ -70,6 +69,8 @@ For more information refer to the [README.md](https://github.com/pftf/RPi4/blob/
 - - - -
 #### Release Notes ####
 Raspberry Pi 4 UEFI Firmware version 1.31
+
+The Boot Order is set to SD → USB → Network
 
 Limit RAM to 3GB set to `Disabled`
 

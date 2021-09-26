@@ -1,6 +1,6 @@
 pkgname=grubefi-rpi4
-pkgver=1.7
-pkgrel=2
+pkgver=1.8
+pkgrel=0
 uefiver=1.31
 pkgdesc="grubefi your pi (4B/400/CM4)"
 arch=('aarch64')
@@ -22,7 +22,7 @@ source=("https://github.com/pftf/RPi4/releases/download/v$uefiver/RPi4_UEFI_Firm
         "https://raw.githubusercontent.com/0n0w1c/$pkgname/master/watch-config.service")
 
 md5sums=('0a391d5e0ddbde8f017317e0be0c9b2f'
-         '714fffcafca72edf2ae94bf768fa1321'
+         '6cc108582dcf6eb9d8d0586b858a2b8b'
          'dd46de30c86b872cee5e729a71a4de72'
          '342e29a3179268f3d599eb5f7d204a39'
          '48ae0e6fcf21128c60825366fdd9d05b'
