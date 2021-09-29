@@ -2,6 +2,8 @@
 Description="Synchronize /boot to /boot/efi"
 
 [Service]
+Type=oneshot
+StandardOutput=journal
 ExecStart=/usr/bin/update-grubefi
 
 [Install]

@@ -35,6 +35,7 @@ if [ $USERID -eq 0 ]; then
    fi
    sed -i -e "s/^GRUB_CMDLINE_LINUX=.*/${NEW_CMDLINE}/" /etc/default/grub
 
+   sync
    grub-mkconfig -o /boot/efi/grub/grub.cfg
    if [ $? -ne 0 ]; then
       echo "Error: Failed to successfully run grub-mkconfig"
