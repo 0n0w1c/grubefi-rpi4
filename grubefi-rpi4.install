@@ -33,6 +33,10 @@ post_install() {
    ln -s kernel8.img /boot/vmlinuz-uefi
    ln -s initramfs-linux.img /boot/initrd-uefi
    sed -i -e 's/^GRUB_DISTRIBUTOR="Arch"/GRUB_DISTRIBUTOR="Manjaro ARM"/' /etc/default/grub
+   grep ^MODULES= /etc/mkinitcpio.conf | grep -q -v efivarfs
+   if [ $? -eq 0 ]; then
+      sed -i -e 's/^MODULES=(/MODULES=(efivarfs /' /etc/mkinitcpio.conf
+   fi
    sync
    grub-install --efi-directory=/boot/efi --boot-directory=/boot/efi --removable
 
@@ -73,8 +77,10 @@ post_remove() {
 
    if [ -f /etc/default/grub ]; then
       sed -i -e 's/^GRUB_CMDLINE_LINUX=.*/GRUB_CMDLINE_LINUX=""/' /etc/default/grub
-      sync
    fi
+
+   sed -i -e 's/efivarfs //' /etc/mkinitcpio.conf
+   sync
 
    local MOUNTED=0
    grep -q " /boot/efi " /etc/mtab
