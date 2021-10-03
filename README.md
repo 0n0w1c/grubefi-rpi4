@@ -70,6 +70,8 @@ For more information refer to the [README.md](https://github.com/pftf/RPi4/blob/
 #### Release Notes ####
 Raspberry Pi 4 UEFI Firmware version 1.31
 
+Added `efivarfs` to `MODULES=()` in /etc/mkinitcpio.conf
+
 The Boot Order is set to SD → USB → Network
 
 Limit RAM to 3GB set to `Disabled`
