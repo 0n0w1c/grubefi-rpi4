@@ -1,6 +1,6 @@
 pkgname=grubefi-rpi4
 pkgver=1.10
-pkgrel=1
+pkgrel=2
 uefiver=1.31
 pkgdesc="grubefi your pi (4B/400/CM4)"
 arch=('aarch64')
@@ -32,30 +32,29 @@ md5sums=('0a391d5e0ddbde8f017317e0be0c9b2f'
          '9b4afbca83c63b826416187809cb3d1e')
 
 package() {
-   mkdir -p $pkgdir/boot/efi
-   mkdir -p $pkgdir/etc/systemd/system/
-   mkdir -p $pkgdir/usr/share/libalpm/hooks
-   mkdir -p $pkgdir/usr/bin
+   install -D bcm2711-rpi-400.dtb $pkgdir/boot/efi/bcm2711-rpi-400.dtb
+   install -D bcm2711-rpi-4-b.dtb $pkgdir/boot/efi/bcm2711-rpi-4-b.dtb
+   install -D bcm2711-rpi-cm4.dtb $pkgdir/boot/efi/bcm2711-rpi-cm4.dtb
 
-   cp bcm2711-rpi-400.dtb $pkgdir/boot/efi/
-   cp bcm2711-rpi-4-b.dtb $pkgdir/boot/efi/
-   cp bcm2711-rpi-cm4.dtb $pkgdir/boot/efi/
-   cp -r overlays $pkgdir/boot/efi/
-   cp -r firmware $pkgdir/boot/efi/
-   cp start4.elf $pkgdir/boot/efi/
-   cp fixup4.dat $pkgdir/boot/efi/
-   cp Readme.md $pkgdir/boot/efi/
-   #cp RPI_EFI.fd $pkgdir/boot/efi/
+   install -d $pkgdir/boot/efi/overlays
+   install -D overlays/* $pkgdir/boot/efi/overlays
+
+   cp -r firmware $pkgdir/boot/efi
+
+   install -D start4.elf $pkgdir/boot/efi/start4.elf
+   install -D fixup4.dat $pkgdir/boot/efi/fixup4.dat
+   install -D Readme.md $pkgdir/boot/efi/Readme.md
+
+   #install -D RPI_EFI.fd $pkgdir/boot/efi/RPI_EFI.fd
    bspatch RPI_EFI.fd $pkgdir/boot/efi/RPI_EFI.fd RPI_EFI.fd.patch
-   cp config.txt $pkgdir/boot/efi/config.txt.uefi
+   install -D config.txt $pkgdir/boot/efi/config.txt.uefi
 
-   cp watch-cmdline.path $pkgdir/etc/systemd/system/
-   cp watch-cmdline.service $pkgdir/etc/systemd/system/
-   cp watch-config.path $pkgdir/etc/systemd/system/
-   cp watch-config.service $pkgdir/etc/systemd/system/
+   install -Dm 644 watch-cmdline.path $pkgdir/etc/systemd/system/watch-cmdline.path
+   install -Dm 644 watch-cmdline.service $pkgdir/etc/systemd/system/watch-cmdline.service
+   install -Dm 644 watch-config.path $pkgdir/etc/systemd/system/watch-config.path
+   install -Dm 644 watch-config.service $pkgdir/etc/systemd/system/watch-config.service
 
-   cp 95-update-grubefi.hook $pkgdir/usr/share/libalpm/hooks/
+   install -Dm 644 95-update-grubefi.hook $pkgdir/usr/share/libalpm/hooks/95-update-grubefi.hook
 
-   cp update-grubefi $pkgdir/usr/bin/
-   chmod 755 $pkgdir/usr/bin/update-grubefi
+   install -Dm 755 update-grubefi $pkgdir/usr/bin/update-grubefi
 }
