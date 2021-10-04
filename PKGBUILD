@@ -1,6 +1,6 @@
 pkgname=grubefi-rpi4
 pkgver=1.10
-pkgrel=2
+pkgrel=3
 uefiver=1.31
 pkgdesc="grubefi your pi (4B/400/CM4)"
 arch=('aarch64')
@@ -36,10 +36,8 @@ package() {
    install -D bcm2711-rpi-4-b.dtb $pkgdir/boot/efi/bcm2711-rpi-4-b.dtb
    install -D bcm2711-rpi-cm4.dtb $pkgdir/boot/efi/bcm2711-rpi-cm4.dtb
 
-   install -d $pkgdir/boot/efi/overlays
-   install -D overlays/* $pkgdir/boot/efi/overlays
-
-   cp -r firmware $pkgdir/boot/efi
+   find overlays -type f -exec install -D "{}" "$pkgdir/boot/efi/{}" \;
+   find firmware -type f -exec install -D "{}" "$pkgdir/boot/efi/{}" \;
 
    install -D start4.elf $pkgdir/boot/efi/start4.elf
    install -D fixup4.dat $pkgdir/boot/efi/fixup4.dat
