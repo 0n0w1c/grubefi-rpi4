@@ -46,6 +46,7 @@ package() {
    #install -D RPI_EFI.fd $pkgdir/boot/efi/RPI_EFI.fd
    bspatch RPI_EFI.fd $pkgdir/boot/efi/RPI_EFI.fd RPI_EFI.fd.patch
 
+   sed -i -e 's/\r//g' config.txt
    sed -i -e 's/^uart_2ndstage=1/#uart_2ndstage=1/' config.txt
    sed -i -e 's/^dtoverlay=miniuart-bt/#dtoverlay=miniuart-bt/' config.txt
    sync
