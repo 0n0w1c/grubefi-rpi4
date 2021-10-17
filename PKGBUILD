@@ -1,6 +1,6 @@
 pkgname=grubefi-rpi4
 pkgver=1.10
-pkgrel=4
+pkgrel=5
 uefiver=1.31
 pkgdesc="grubefi your pi (4B/400/CM4)"
 arch=('aarch64')
